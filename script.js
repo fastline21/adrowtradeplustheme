@@ -1,5 +1,5 @@
-jQuery(document).ready(function($) {
-    if ($("#wpadminbar").length) {
-        $('nav').css({'margin-top':'32px'});
+jQuery(document).ready(function() {
+    if (jQuery('#wpadminbar').length) {
+        jQuery('nav').css({'margin-top':'32px'});
     }
 });

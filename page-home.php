@@ -1,9 +1,11 @@
 <?php
-// Template Name: Home
+/*
+ * Template Name: Home
+*/
 get_header();
 ?>
 <div id="banner">
-    <img class="img-fluid" src="wp-content/themes/adrowtradeplustheme/assets/banner.jpg" />
+    <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" />
 </div>
 <div id="products">
     <div class="container">
@@ -19,8 +21,7 @@ get_header();
             ?>
             <div class="row">
             <?php
-            while ($productPost->have_posts()) : $productPost->the_post();
-                for ($i=0; $i<12; $i++) {               
+            while ($productPost->have_posts()) : $productPost->the_post();             
                 ?>
                 <div class="col-md-3 col-sm-4 text-center item-post">
                     <?php
@@ -28,17 +29,16 @@ get_header();
                         echo '<h6 class="item-title">' . strtoupper(get_the_title()) . '</h6>';
                         echo '<h3 class="item-price">' . get_post_meta($post->ID, 'item_price', true) . '</h3>';
                     ?>
-                    <button type="button" class="btn btn-primary item-button">BUY ME</button>
+                    <a class="btn btn-primary item-button" href="<?php the_permalink(); ?>">VIEW ITEM</a>
                 </div>
                 <?php
-                }
             endwhile;
             wp_reset_postdata();
             ?>
             </div>
             <?php
             $productCount = $productPost->found_posts;
-            if (12 > 8) :
+            if ($productCount > 8) :
                 ?>
                 <div class="text-center pt-5">
                     <button type="button" class="btn btn-primary item-button">MORE ITEMS</button>
@@ -61,19 +61,19 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img class="img-fluid" src="wp-content/themes/adrowtradeplustheme/assets/adrowtradeplus_logo.png" />
+                <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/adrowtradeplus_logo.png" />
                 <?php
                 $contactUsArray = array(
                     array(
-                        "wp-content/themes/adrowtradeplustheme/assets/map.png",
+                        get_template_directory_uri() . "/assets/map.png",
                         "21st Floor Strata 100, Ortigas Business Park, Pasig City"
                     ),
                     array(
-                        "wp-content/themes/adrowtradeplustheme/assets/mail.png",
+                        get_template_directory_uri() . "/assets/mail.png",
                         "inquire@adrowtradeplus.com"
                     ),
                     array(
-                        "wp-content/themes/adrowtradeplustheme/assets/phone.png",
+                        get_template_directory_uri() . "/assets/phone.png",
                         "(02) 717-1771"
                     )
                 );
@@ -110,22 +110,19 @@ get_header();
                         "PERSONAL CARE PRODUCTS",
                         "OFFICE SUPPLIES"
                     );
-                    ?>
-                    <ul>
-                    <?php
                     $y = 5;
                     for ($i=0; $i<14; $i++) {
-                        
+                        if ($i == 0) {
+                            echo "<ul class='nav flex-column list-link'>";
+                        }
                         if ($i == $y) {
-                            echo "yes";
+                            echo "</ul>";
+                            echo "<ul class='nav flex-column list-link'>";
                             $y *= 2;
                         }
-                        ?>
-                        <li><?php echo $tagArray[$i]; ?></li>
-                        <?php
+                        echo "<li class='nav-item'><a class='nav-link link' href='" . $tagArray[$i] . "'>" . $tagArray[$i] . "</a></li>";
                     }
                     ?>
-                    </ul>
                 </div>
             </div>
         </div>

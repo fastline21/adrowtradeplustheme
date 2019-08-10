@@ -70,6 +70,10 @@ Version: 1.0
     height: 70px;
     display: block;
 }*/
+/* Contact Us */
+#contact-us {
+    padding: 50px 0;
+}
 #contact-us .logo {
     float: left;
     transform: scale(0.5);
@@ -99,4 +103,25 @@ Version: 1.0
 }
 #contact-us .title {
     font-weight: bold;
+}
+#contact-us .list-link {
+    float: left;
+}
+#contact-us .link {
+    color: #58595b;
+    font-weight: bold;
+    padding: 8px;
+}
+#contact-us .link:hover {
+    color: #f7931e;
+}
+/* Footer */
+.footer {
+    padding-top: 5px;
+}
+.footer .copyright {
+    padding: 8px 0;
+    text-align: right;
+    font-weight: bold;
+    color: #58595b;
 }

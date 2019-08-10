@@ -11,7 +11,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
                 <div class="container">
                     <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-                        <img class="img-fluid logo" src="wp-content/themes/adrowtradeplustheme/assets/adrowtradeplus_logo.png" alt="Adrow Trade Plus Logo" />
+                        <img class="img-fluid logo" src="<?php echo get_template_directory_uri(); ?>/assets/adrowtradeplus_logo.png" alt="Adrow Trade Plus Logo" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,10 @@
                                 <a class="nav-link" href="<?php echo get_home_url(); ?>">HOME</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">PRODUCTS</a>
+                                <a class="nav-link" href="<?php echo get_home_url(); ?>/products">PRODUCTS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">CONTACT US</a>
+                                <a class="nav-link" href="<?php echo get_home_url(); ?>/contact-us">CONTACT US</a>
                             </li>
                         </ul>
                     </div>
